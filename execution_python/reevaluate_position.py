@@ -146,7 +146,7 @@ def get_lstm_input(pair, pair_history):
         hour_chunks = hour_chunks[1:],
         ticker_num = ticker_num
     )
-    # Returns 3D (1 x lstm length x inupt dim) numpy array. 
+    # Returns 3D (1 x lstm length x input dim) numpy array. 
     # Model predictions on this give you a single value.
     return np.concatenate(
         (
