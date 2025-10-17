@@ -11,6 +11,7 @@ jobs:
     steps:
     # the checkout action persists the passed credentials by default
     # subsequent git commands will pick them up automatically
+    # add test comment
     - uses: actions/checkout@v2
     - run: |
         # do something
