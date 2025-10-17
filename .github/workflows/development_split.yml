@@ -14,7 +14,8 @@ jobs:
     - uses: actions/checkout@v2
     - run: |
         # do something
-        branch_name=$(echo $github.event.head_commit.message | awk '{print $1}')
+        echo "${{github.event.head_commit.message}}"
+        branch_name=$(echo "${{github.event.head_commit.message}}" | awk '{print $1}')
         echo "$branch_name"
         git checkout $branch_name 2>/dev/null || git checkout -b $branch_name
         git cherry-pick development
