@@ -15,7 +15,11 @@ jobs:
     - run: |
         # do something
         echo "${{github.event.head_commit.message}}"
-        branch_name=$(echo "${{github.event.head_commit.message}}" | awk '{print $1}')
+        git config user.email "georgeselly@yahoo.com"
+        git config user.name "George Selly"
+        branch_name=$(echo "${{github.event.head_commit.message}}" | head -n 1 | awk '{print $1}')
         echo "$branch_name"
+        git fetch origin main:main
+        git switch main
         git checkout $branch_name 2>/dev/null || git checkout -b $branch_name
         git cherry-pick development
